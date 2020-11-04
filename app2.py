@@ -140,13 +140,11 @@ def predict_ann():
 house_price_2 = predict_ann()
 
 st.text("")
-if st.button('**Price Prediction**'):
-    prediction01 = house_price_1
-    prediction02 = house_price_2
-    st.write("*Deep Learning Algorithm (89% accuracy)* : **$**", prediction02, "and *Random Forest Algorithm (86% accuracy)* : **$**", prediction01  )
+if st.button('PREDICT PRICE'):
+    st.write("*Deep Learning Algorithm (89% accuracy)* : **$**", house_price_2, "and *Random Forest Algorithm (86% accuracy)* : **$**", house_price_1 )
 
 #st.subheader(')
-#st.write()
+
 
 #if __name__ =='__main__':
     #main()
