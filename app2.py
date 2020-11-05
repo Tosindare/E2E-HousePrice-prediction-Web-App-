@@ -43,7 +43,7 @@ if st.checkbox('Show Summary of Dataset'):
 
 #@st.cache      
 def user_input_parameters():         
-    bedrooms = st.sidebar.slider("1. No of bedrooms?", 0, 35, 10)
+    bedrooms = st.sidebar.slider("1. No of bedrooms?", 0, 12, 4)
     #st.write(""" **You selected** """, bedrooms, """**bedrooms**""")
     
     bathrooms = st.sidebar.slider("2. No of bathrooms?", 0, 15, 5)
@@ -73,7 +73,6 @@ def user_input_parameters():
     else:
         yr_renovated = st.sidebar.slider("Year Renovated?", 1900,2019, 2010)
 
-     
     zipcode = st.sidebar.slider("13. Zipcode of the house?", 98001,98288, 98250)
     #st.write(""" **You selected** """, zipcode)
     lat = st.sidebar.slider("14. Location of House (lattitude)?", 47.000100, 47.800600, 47.560053, 0.000001, "%g")
@@ -108,16 +107,16 @@ st.subheader('User Input parameters')
 st.write(df)    
 
 
-model_rf = joblib.load("random_forest_regression_model.joblib")
+#model_rf = joblib.load("random_forest_regression_model.joblib")
 
 model_ann = tf.keras.models.load_model("ann_model.h5")
  
-def predict_rf():
-    prediction = model_rf.predict(df)
-    pred = np.around(prediction, 2)
-    return float(pred)   
+# def predict_rf():
+#     prediction = model_rf.predict(df)
+#     pred = np.around(prediction, 2)
+#     return float(pred)   
 
-house_price_1 = predict_rf()
+# house_price_1 = predict_rf()
 
 st.text("")
 
@@ -141,7 +140,7 @@ house_price_2 = predict_ann()
 
 st.text("")
 if st.button('PREDICT PRICE'):
-    st.write("*Deep Learning Algorithm (89% accuracy)* : **$**", house_price_2, "and *Random Forest Algorithm (86% accuracy)* : **$**", house_price_1 )
+    st.write("**$**", house_price_2, " -*based on Deep Learning Algorithm (89% accuracy)*")
 
 #st.subheader(')
 
